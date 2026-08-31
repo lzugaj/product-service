@@ -44,6 +44,7 @@ class ProductControllerTest {
 
         ProductResponse response = new ProductResponse(
                 code,
+                "Test",
                 new BigDecimal("12.34"),
                 new BigDecimal("14.38"),
                 true
@@ -63,6 +64,7 @@ class ProductControllerTest {
     void getProducts_productsExist_returnsProducts() {
         ProductResponse firstProduct = new ProductResponse(
                 "ABC123xyz9",
+                "Test1",
                 new BigDecimal("12.34"),
                 new BigDecimal("14.38"),
                 true
@@ -70,6 +72,7 @@ class ProductControllerTest {
 
         ProductResponse secondProduct = new ProductResponse(
                 "XYZ987abc1",
+                "Test2",
                 new BigDecimal("20.00"),
                 new BigDecimal("23.00"),
                 false
@@ -148,6 +151,7 @@ class ProductControllerTest {
 
         ProductResponse response = new ProductResponse(
                 "ABC123xyz9",
+                "Test product",
                 new BigDecimal("12.34"),
                 new BigDecimal("14.38"),
                 true

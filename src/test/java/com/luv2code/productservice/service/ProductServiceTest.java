@@ -56,6 +56,7 @@ class ProductServiceTest {
 
         ProductResponse expectedResponse = new ProductResponse(
                 product.getCode(),
+                product.getName(),
                 new BigDecimal("12.34"),
                 priceUsd,
                 true
@@ -106,6 +107,7 @@ class ProductServiceTest {
 
         ProductResponse expectedResponse = new ProductResponse(
                 code,
+                product.getName(),
                 new BigDecimal("12.34"),
                 new BigDecimal("14.38"),
                 true
@@ -171,6 +173,7 @@ class ProductServiceTest {
 
         ProductResponse firstResponse = new ProductResponse(
                 firstProduct.getCode(),
+                firstProduct.getName(),
                 new BigDecimal("10.00"),
                 new BigDecimal("11.00"),
                 true
@@ -178,6 +181,7 @@ class ProductServiceTest {
 
         ProductResponse secondResponse = new ProductResponse(
                 secondProduct.getCode(),
+                secondProduct.getName(),
                 new BigDecimal("20.00"),
                 new BigDecimal("22.00"),
                 false

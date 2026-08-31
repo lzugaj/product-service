@@ -25,6 +25,7 @@ public class ProductMapper {
         Assert.notNull(product, "The product DTO cannot be null");
         return new ProductResponse(
                 product.getCode(),
+                product.getName(),
                 product.getPriceEur(),
                 product.getPriceUsd(),
                 product.isAvailable()

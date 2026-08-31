@@ -76,6 +76,7 @@ class ProductControllerIT {
 
         assertThat(response).isNotNull();
         assertThat(response.code()).isEqualTo("ABC123xyz9");
+        assertThat(response.name()).isEqualTo("Product 1");
         assertThat(response.priceInEur()).isEqualByComparingTo("12.34");
         assertThat(response.priceInUsd()).isNotNull();
         assertThat(response.available()).isTrue();
