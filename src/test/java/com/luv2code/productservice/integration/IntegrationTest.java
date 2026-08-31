@@ -10,10 +10,11 @@ import java.lang.annotation.Target;
 
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
+import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @Target(TYPE)
 @Retention(RUNTIME)
-@SpringBootTest
+@SpringBootTest(webEnvironment = RANDOM_PORT)
 @AutoConfigureWebTestClient
 @ContextConfiguration(initializers = TestcontainersInitializer.class)
 @ActiveProfiles("test")

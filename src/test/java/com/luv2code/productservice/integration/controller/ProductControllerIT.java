@@ -7,6 +7,7 @@ import com.luv2code.productservice.rest.dto.ProductRequest;
 import com.luv2code.productservice.rest.dto.ProductResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
@@ -26,6 +27,9 @@ class ProductControllerIT {
     @Autowired
     private ProductRepository productRepository;
 
+    @Value("${product-service.security.api-key}")
+    private String apiKey;
+
     @Test
     void createProduct_validRequest_returnsCreatedProduct() {
         ProductRequest request = new ProductRequest(
@@ -36,6 +40,7 @@ class ProductControllerIT {
 
         ProductResponse response = webTestClient.post()
                 .uri(PRODUCTS_URL)
+                .header("X-API-KEY", apiKey)
                 .bodyValue(request)
                 .exchange()
                 .expectStatus()
@@ -67,6 +72,7 @@ class ProductControllerIT {
     void getProduct_existingProduct_returnsProduct() {
         ProductResponse response = webTestClient.get()
                 .uri(PRODUCTS_URL + "/" + "ABC123xyz9")
+                .header("X-API-KEY", apiKey)
                 .exchange()
                 .expectStatus()
                 .isOk()
@@ -87,6 +93,7 @@ class ProductControllerIT {
     void getProducts_productsExist_returnsProducts() {
         List<ProductResponse> response = webTestClient.get()
                 .uri(PRODUCTS_URL)
+                .header("X-API-KEY", apiKey)
                 .exchange()
                 .expectStatus()
                 .isOk()
