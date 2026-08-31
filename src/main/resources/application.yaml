@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: product-service
+
+product-service:
+  hnb:
+    api:
+      url: https://api.hnb.hr

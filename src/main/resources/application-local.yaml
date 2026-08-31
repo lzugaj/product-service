@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/product_service
+    username: postgres
+    password: password
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        generate_statistics: true
+        session:
+          events:
+            log:
+              LOG_QUERIES_SLOWER_THAN_MS: 500 # 0.5 seconds
+
+logging:
+  level:
+    root: INFO
+    com.example.productservice: DEBUG
+    
+product-service:
+  security:
+    api-key: 'test'

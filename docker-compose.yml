@@ -1,0 +1,15 @@
+services:
+  db:
+    image: 'postgres:latest'
+    container_name: product_service_db
+    environment:
+      - 'POSTGRES_DB=product_service'
+      - 'POSTGRES_PASSWORD=password'
+      - 'POSTGRES_USER=postgres'
+    ports:
+      - '5433:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:
