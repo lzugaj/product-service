@@ -127,6 +127,7 @@ Response:
 ```json
 {
   "code": "2r8AxZRDsk",
+  "name": "Test product",
   "priceInEur": 12.34,
   "priceInUsd": 14.38,
   "available": true
@@ -153,6 +154,7 @@ Response:
 ```json
 {
   "code": "2r8AxZRDsk",
+  "name": "Test product",
   "priceInEur": 12.34,
   "priceInUsd": 14.38,
   "available": true
@@ -176,12 +178,14 @@ Response:
 [
   {
     "code": "2r8AxZRDsk",
+    "name": "Test product 1",
     "priceInEur": 12.34,
     "priceInUsd": 14.38,
     "available": true
   },
   {
     "code": "ABC123xyz9",
+    "name": "Test product 2",
     "priceInEur": 20.00,
     "priceInUsd": 23.30,
     "available": false
