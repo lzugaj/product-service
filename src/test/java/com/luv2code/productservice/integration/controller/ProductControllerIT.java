@@ -20,6 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ProductControllerIT {
 
     private static final String PRODUCTS_URL = "/api/v1/products";
+    private static final String AUTH_HEADER = "X-API-KEY";
 
     @Autowired
     private WebTestClient webTestClient;
@@ -40,7 +41,7 @@ class ProductControllerIT {
 
         ProductResponse response = webTestClient.post()
                 .uri(PRODUCTS_URL)
-                .header("X-API-KEY", apiKey)
+                .header(AUTH_HEADER, apiKey)
                 .bodyValue(request)
                 .exchange()
                 .expectStatus()
@@ -72,7 +73,7 @@ class ProductControllerIT {
     void getProduct_existingProduct_returnsProduct() {
         ProductResponse response = webTestClient.get()
                 .uri(PRODUCTS_URL + "/" + "ABC123xyz9")
-                .header("X-API-KEY", apiKey)
+                .header(AUTH_HEADER, apiKey)
                 .exchange()
                 .expectStatus()
                 .isOk()
@@ -93,7 +94,7 @@ class ProductControllerIT {
     void getProducts_productsExist_returnsProducts() {
         List<ProductResponse> response = webTestClient.get()
                 .uri(PRODUCTS_URL)
-                .header("X-API-KEY", apiKey)
+                .header(AUTH_HEADER, apiKey)
                 .exchange()
                 .expectStatus()
                 .isOk()
